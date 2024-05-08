@@ -6,19 +6,40 @@
     mov ss, ax
     mov sp, 0x7000
     
-    mov si, loading_message
-    call print_string
-    mov ax, 0x8100
-    mov ds, ax
-    mov es, ax
+    mov ah, 0x06
+    xor al, al
+    mov bh, 0x07
+    xor cx, cx
+    mov dx, 0x184f
+    int 0x10
 
-    jmp 0x8100
+    xor ax, ax
+    int 0x16
 
-disk_error:
-    mov si, disk_error_message
+    mov si, os_name
     call print_string
-    cli
-    hlt
+
+    mov si, prompt
+    call print_string
+
+shell:
+    mov ah, 0
+    int 0x16
+    cmp al, 0x0D
+    jne not_enter
+    mov ah, 0x0e
+    mov al, 0x0a
+    int 0x10
+    mov al, 0x0d
+    int 0x10
+    mov si, prompt
+    call print_string
+    jmp shell
+
+not_enter:
+    mov ah, 0x0e
+    int 0x10
+    jmp shell
 
 print_string:
     lodsb
@@ -33,7 +54,7 @@ print_string:
 done_print:
     ret
 
-disk_error_message db "ruh oh spagettios disk error whoopsies skidoopsies", 0
-loading_message db "loading shell...", 0
+os_name db "epicOS v1", 0
+prompt db "> ", 0
 
 times 512-($-$$) db 0
