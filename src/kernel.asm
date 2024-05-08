@@ -25,16 +25,21 @@
 shell:
     mov ah, 0
     int 0x16
-    cmp al, 0x0D
-    jne not_enter
     mov ah, 0x0e
-    mov al, 0x0a
+    cmp al, 0x0D 
+    je enter_pressed
     int 0x10
+    jmp shell
+
+enter_pressed:
     mov al, 0x0d
+    int 0x10
+    mov al, 0x0a
     int 0x10
     mov si, prompt
     call print_string
     jmp shell
+
 
 not_enter:
     mov ah, 0x0e
