@@ -8,12 +8,12 @@
 you need:  
 
 [epicOS](https://github.com/rileeyyy/epicos/archive/refs/heads/main.zip)  
-[NASM](https://nasm.us/)  
-[MSYS MinGW64](https://www.msys2.org/) (or any other bash platform)  
-[QEMU](https://www.qemu.org/) (or any i386 emulator)  
-a basic knowledge of how not to blow up your computer  
+[NASM](https://nasm.us/)   
+[MSYS MinGW64](https://www.msys2.org/) (or any other bash platform)    
+[QEMU](https://www.qemu.org/) (or any i386 emulator)   
+a basic knowledge of how not to blow up your computer   
 
-note: when executing these commands, put the files in the directory (of nasm, msys, etc.) or use cd [directory]  
+note: when executing these commands, put the files in the directory (of nasm, msys, etc.) or use cd [directory]    
 open windows cmd, using nasm type:  
 ```nasm -f bin bootloader.asm -o bootloader.bin```  
 ```nasm -f bin kernel.asm -o kernel.bin```    
