@@ -119,7 +119,5 @@ sheer boredom.
 
 assembly
 ### assembly
-## ASSEMBLY
-# ASSEMBLY
 ## assembly
 # ASSEMBLY
