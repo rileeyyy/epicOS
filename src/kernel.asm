@@ -4,22 +4,18 @@
     mov es, ax
     mov ss, ax
     mov sp, 0x7000
-    
+
     mov ah, 0x06
     xor al, al
     mov bh, 0x07
     xor cx, cx
-    mov dx, 0x184f
+    mov dx, 0x0000
     int 0x10
-
-    xor ax, ax
-    int 0x16
 
     mov si, os_name
     call print_string
-
     mov ah, 0x0e
-    mov al, 0x0a
+    mov al, 0x0a 
     int 0x10
 
     mov si, prompt
