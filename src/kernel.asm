@@ -12,6 +12,10 @@
     mov dx, 0x184f
     int 0x10
 
+    mov ah, 0x0e
+    mov al, 0x0a
+    int 0x10
+
     mov si, os_name
     call print_string
     mov ah, 0x0e
