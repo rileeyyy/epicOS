@@ -60,6 +60,12 @@ execute_command:
     jne shell
     mov si, buffer
     add si, 5
+    mov di, buffer
+    mov cx, 5
+copy_text:
+    lodsb
+    stosb
+    loop copy_text
     call print_string
     jmp shell
 
