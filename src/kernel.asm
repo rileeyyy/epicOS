@@ -66,12 +66,9 @@ copy_text:
     lodsb
     stosb
     loop copy_text
-    call print_string
-    jmp shell
+    jmp print_text
 
 not_enter:
-    mov ah, 0x0e
-    int 0x10
     jmp shell
 
 print_string:
@@ -84,6 +81,11 @@ print_string:
 
 done_print:
     ret
+
+print_text:
+    mov si, buffer
+    call print_string
+    jmp shell
 
 os_name db "epicOS v1.1", 0
 prompt db "> ", 0
