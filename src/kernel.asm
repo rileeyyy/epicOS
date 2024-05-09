@@ -79,7 +79,7 @@ print_string:
 done_print:
     ret
 
-os_name db "epicOS (pre-release 1) v1.1", 0
+os_name db "epicOS v1.1", 0
 prompt db "> ", 0
 buffer db 100, 0
 command db "echo ", 0
