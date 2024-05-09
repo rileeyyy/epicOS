@@ -7,6 +7,7 @@ then run it using
 ```
 qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy
 ```
+note: rename it to epicOS.img
 have fun!
 
 # COMPILING
