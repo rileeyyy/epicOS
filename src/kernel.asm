@@ -83,6 +83,6 @@ os_name db "epicOS v1.1", 0
 prompt db "> ", 0
 buffer db 100, 0
 command db "echo ", 0
+echo_text db 100, 0
 
 times 512-($-$$) db 0
-
