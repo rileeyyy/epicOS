@@ -1,6 +1,13 @@
 # epicOS
 ### a stupid operating system i made that somehow works
 
+# RUNNING
+if you dont wanna compile it (i dont blame you) you can download one of the disk images in the "imgs" folder  
+then run it using  
+```
+qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy
+```
+have fun!
 
 # COMPILING
 
