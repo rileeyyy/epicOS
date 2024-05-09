@@ -40,7 +40,7 @@ youll need:
 - [NASM](https://nasm.us/)
 - [Homebrew](https://brew.sh/) (for easy installation of NASM and QEMU)
 - [QEMU](https://www.qemu.org/) (or any i386 emulator)
-- A basic knowledge of how not to blow up your computer
+- a basic knowledge of how not to blow up your computer
 
 note: when executing these commands, put the files in the directory or use cd [directory]  
 
@@ -77,7 +77,7 @@ youll need:
 - [epicOS](https://github.com/rileeyyy/epicos/archive/refs/heads/main.zip)
 - [NASM](https://nasm.us/)
 - [QEMU](https://www.qemu.org/)
-- A basic knowledge of how not to blow up your computer
+- a basic knowledge of how not to blow up your computer
 
 note: when executing these commands, put the files in the directory or use cd [directory]  
 
