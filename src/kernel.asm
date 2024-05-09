@@ -48,11 +48,19 @@ shell:
     jne execute_command
     inc di
     mov si, di
+    mov di, buffer
     call print_string
     jmp shell
 
 execute_command:
-    call execute_input
+    mov si, buffer
+    mov di, command
+    cld
+    rep cmpsb
+    jne shell
+    mov si, buffer
+    add si, 5
+    call print_string
     jmp shell
 
 not_enter:
@@ -69,9 +77,6 @@ print_string:
     jmp print_string
 
 done_print:
-    ret
-
-execute_input:
     ret
 
 os_name db "epicOS v1.1", 0
