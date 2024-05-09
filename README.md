@@ -74,7 +74,7 @@ cat bootloader.bin kernel.bin > epicOS.img
 finally, run epicos on qemu
 
 ```
-qemu-system-i386 -drive format=raw,file=epicOS.img
+qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy
 ```
 
 have fun!
@@ -113,7 +113,7 @@ cat bootloader.bin kernel.bin > epicOS.img
 finally, run epicOS using qemu:
 
 ```
-qemu-system-i386 -drive format=raw,file=epicOS.img
+qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy
 ```
 
 have fun!
