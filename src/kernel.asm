@@ -9,13 +9,13 @@
     xor al, al
     mov bh, 0x07
     xor cx, cx
-    mov dx, 0x0000
+    mov dx, 0x184f
     int 0x10
 
     mov si, os_name
     call print_string
     mov ah, 0x0e
-    mov al, 0x0a 
+    mov al, 0x0a
     int 0x10
 
     mov si, prompt
