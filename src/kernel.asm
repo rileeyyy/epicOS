@@ -37,6 +37,22 @@ shell:
     int 0x10
     mov si, prompt
     call print_string
+
+    mov si, buffer
+    mov di, command
+    cld
+    lodsb
+    mov bl, al
+    mov al, byte [di]
+    cmp al, bl
+    jne execute_command
+    inc di
+    mov si, di
+    call print_string
+    jmp shell
+
+execute_command:
+    call execute_input
     jmp shell
 
 not_enter:
@@ -55,7 +71,12 @@ print_string:
 done_print:
     ret
 
-os_name db "epicOS v1", 0
+execute_input:
+    ret
+
+os_name db "epicOS v1.1", 0
 prompt db "> ", 0
+buffer db 100, 0
+command db "echo ", 0
 
 times 512-($-$$) db 0
