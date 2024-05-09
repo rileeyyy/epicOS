@@ -15,12 +15,20 @@ you need:
 
 note: when executing these commands, put the files in the directory (of nasm, msys, etc.) or use cd [directory]    
 open windows cmd, using nasm type:  
-```nasm -f bin bootloader.asm -o bootloader.bin```  
-```nasm -f bin kernel.asm -o kernel.bin```    
+```
+nasm -f bin bootloader.asm -o bootloader.bin
+```  
+```
+nasm -f bin kernel.asm -o kernel.bin
+```    
 then in MSYS type:  
-```cat bootloader.bin kernel.bin > epicOS.img```  
+```
+cat bootloader.bin kernel.bin > epicOS.img
+```  
 finally in windows cmd type:  
-```qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy```
+```
+qemu-system-i386 -drive format=raw,file=epicOS.img,if=floppy
+```
 
 have fun!  
 
@@ -63,8 +71,44 @@ qemu-system-i386 -drive format=raw,file=epicOS.img
 
 have fun!
 
-## Linux
-todo: do this
+## linux
+youll need:
+
+- [epicOS](https://github.com/rileeyyy/epicos/archive/refs/heads/main.zip)
+- [NASM](https://nasm.us/)
+- [QEMU](https://www.qemu.org/)
+- A basic knowledge of how not to blow up your computer
+
+note: when executing these commands, put the files in the directory or use cd [directory]  
+
+note: ubuntu and some other linux distros use sudo apt-get so i guess just use your package manager
+
+```
+sudo apt-get install nasm qemu-system-x86
+```
+
+navigate to the directory containing the epicOS code.
+
+compile the bootloader and kernel using nasm:
+
+```
+nasm -f bin bootloader.asm -o bootloader.bin
+nasm -f bin kernel.asm -o kernel.bin
+```
+
+then type this to get the disk image:
+
+```
+cat bootloader.bin kernel.bin > epicOS.img
+```
+
+finally, run epicOS using qemu:
+
+```
+qemu-system-i386 -drive format=raw,file=epicOS.img
+```
+
+have fun!
 
 # WHY DID I MAKE THIS?
 boredom.
