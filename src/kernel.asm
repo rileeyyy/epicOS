@@ -60,12 +60,6 @@ execute_command:
     jne shell
     mov si, buffer
     add si, 5
-    mov di, buffer
-    mov cx, 5
-copy_text:
-    lodsb
-    stosb
-    loop copy_text
     call print_string
     jmp shell
 
@@ -85,10 +79,9 @@ print_string:
 done_print:
     ret
 
-os_name db "epicOS (pre-release) v1.1", 0
+os_name db "epicOS (pre-release 1) v1.1", 0
 prompt db "> ", 0
 buffer db 100, 0
 command db "echo ", 0
 
 times 512-($-$$) db 0
-
