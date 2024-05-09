@@ -85,3 +85,4 @@ buffer db 100, 0
 command db "echo ", 0
 
 times 512-($-$$) db 0
+
