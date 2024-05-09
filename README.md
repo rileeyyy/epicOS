@@ -81,10 +81,10 @@ youll need:
 
 note: when executing these commands, put the files in the directory or use cd [directory]  
 
-note: ubuntu and some other linux distros use sudo apt-get so i guess just use your package manager
+note: ubuntu and some other linux distros use sudo apt so i guess just use your package manager
 
 ```
-sudo apt-get install nasm qemu-system-x86
+sudo apt install nasm qemu-system-x86
 ```
 
 navigate to the directory containing the epicOS code.
