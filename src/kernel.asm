@@ -56,9 +56,10 @@ execute_command:
     mov si, buffer
     mov di, command
     cld
-    mov cx, 5 ; Length of "echo "
+    mov cx, 5
     repe cmpsb
     jne shell
+
     mov si, buffer
     add si, 5
     call print_string
