@@ -31,13 +31,38 @@ shell:
     mov ah, 0x0e
     int 0x10
     cmp al, 0x0D
-    jne shell
+    jne check_command
     mov ah, 0x0e
     mov al, 0x0a
     int 0x10
     mov al, 0x0d
     int 0x10
     mov si, prompt
+    call print_string
+    jmp shell
+
+check_command:
+    mov si, buffer
+    mov di, command
+    cld
+    mov cx, 3
+    repe cmpsb
+    jne execute_command
+
+    mov si, ver_msg
+    call print_string
+    jmp shell
+
+execute_command:
+    mov si, buffer
+    mov di, command
+    cld
+    mov cx, 5
+    repe cmpsb
+    jne shell
+
+    mov si, buffer
+    add si, 5
     call print_string
     jmp shell
 
@@ -54,5 +79,8 @@ done_print:
 
 os_name db "epicOS v1.1", 0
 prompt db "> ", 0
+buffer db 100, 0
+command db "ver", 0
+ver_msg db "epicOS test build", 0
 
 times 512-($-$$) db 0
