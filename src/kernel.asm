@@ -62,6 +62,8 @@ print_string:
     lodsb
     or al, al
     jz done_print
+    cmp al, 0x0D
+    je done_print
     mov ah, 0x0e
     int 0x10
     jmp print_string
