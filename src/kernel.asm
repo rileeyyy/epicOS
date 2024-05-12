@@ -47,8 +47,13 @@ check_command:
     cld
     mov cx, 3
     repe cmpsb
-    jne shell
+    je execute_ver
 
+    mov si, buffer
+    call print_string
+    jmp shell
+
+execute_ver:
     mov si, ver_msg
     call print_string
     jmp shell
@@ -70,4 +75,4 @@ buffer db 100, 0
 command db "ver", 0
 ver_msg db "epicOS test build", 0
 
-times 512-($-$$) db 0 
+times 512-($-$$) db 0
