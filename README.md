@@ -46,7 +46,7 @@ youll need:
 
 - [epicOS](https://github.com/rileeyyy/epicos/archive/refs/heads/main.zip)
 - [NASM](https://nasm.us/)
-- [Homebrew](https://brew.sh/) (for easy installation of NASM and QEMU)
+- [Homebrew](https://brew.sh/)
 - [QEMU](https://www.qemu.org/) (or any i386 emulator)
 - a basic knowledge of how not to blow up your computer
 
