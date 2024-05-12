@@ -60,6 +60,8 @@ read_loop:
     int 0x16
     cmp al, 0x0D
     je done_reading
+    cmp al, 0x20
+    jb read_loop
     mov ah, 0x0e
     int 0x10
     stosb
