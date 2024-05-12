@@ -47,22 +47,9 @@ check_command:
     cld
     mov cx, 3
     repe cmpsb
-    jne execute_command
-
-    mov si, ver_msg
-    call print_string
-    jmp shell
-
-execute_command:
-    mov si, buffer
-    mov di, command
-    cld
-    mov cx, 5
-    repe cmpsb
     jne shell
 
-    mov si, buffer
-    add si, 5
+    mov si, ver_msg
     call print_string
     jmp shell
 
@@ -84,3 +71,8 @@ command db "ver", 0
 ver_msg db "epicOS test build", 0
 
 times 512-($-$$) db 0
+
+; A HEART THATSSSSS
+; FULL UP LIKE A LANDFILLLL
+; song: no suprises by radiohead
+; -riley
