@@ -26,7 +26,7 @@
     call print_string
 
 shell:
-    mov si, buffer  
+    mov si, buffer
     mov cx, 100
     xor al, al
     rep stosb
