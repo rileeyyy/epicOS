@@ -26,6 +26,11 @@
     call print_string
 
 shell:
+    mov si, buffer  
+    mov cx, 100
+    xor al, al
+    rep stosb
+
     mov ah, 0
     int 0x16
     mov ah, 0x0e
