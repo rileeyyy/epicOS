@@ -53,8 +53,18 @@ done_print:
     ret
 
 read_string:
-    mov ah, 0x0
+    mov si, input_buffer
+    mov cx, 32
+    mov ah, 0
+read_loop:
     int 0x16
+    cmp al, 0x0D
+    je done_reading
+    mov ah, 0x0e
+    int 0x10
+    stosb
+    loop read_loop
+done_reading:
     mov ah, 0x0e
     mov al, 0x0d
     int 0x10
