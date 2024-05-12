@@ -70,9 +70,4 @@ buffer db 100, 0
 command db "ver", 0
 ver_msg db "epicOS test build", 0
 
-times 512-($-$$) db 0
-
-; A HEART THATSSSSS
-; FULL UP LIKE A LANDFILLLL
-; song: no suprises by radiohead
-; -riley
+times 512-($-$$) db 0 
