@@ -26,11 +26,6 @@
     call print_string
 
 shell:
-    mov si, buffer
-    mov cx, 100
-    xor al, al
-    rep stosb
-
     mov ah, 0
     int 0x16
     mov ah, 0x0e
@@ -52,13 +47,8 @@ check_command:
     cld
     mov cx, 3
     repe cmpsb
-    je execute_ver
+    jne shell
 
-    mov si, buffer
-    call print_string
-    jmp shell
-
-execute_ver:
     mov si, ver_msg
     call print_string
     jmp shell
@@ -67,8 +57,6 @@ print_string:
     lodsb
     or al, al
     jz done_print
-    cmp al, 0x0D
-    je done_print
     mov ah, 0x0e
     int 0x10
     jmp print_string
