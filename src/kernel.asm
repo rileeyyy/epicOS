@@ -71,3 +71,5 @@ command db "ver", 0
 ver_msg db "epicOS test build", 0
 
 times 512-($-$$) db 0
+
+; ah rah fli
