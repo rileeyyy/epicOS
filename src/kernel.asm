@@ -59,6 +59,10 @@ compare_loop:
     jmp shell
 
 not_ver:
+    mov si, debug_msg
+    call print_string
+    mov si, buffer
+    call print_string
     jmp shell
 
 print_string:
@@ -77,5 +81,6 @@ prompt db "> ", 0
 buffer db 100, 0
 command db "ver", 0
 ver_msg db "epicOS test build", 0
+debug_msg db "command is not ver. You typed: ", 0
 
 times 512-($-$$) db 0
