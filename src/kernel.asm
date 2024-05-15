@@ -28,17 +28,13 @@
 shell:
     mov ah, 0
     int 0x16
-    mov ah, 0x0e
-    int 0x10
     cmp al, 0x0D
-    jne check_command
+    jne shell_loop
+    jmp check_command
+
+shell_loop:
     mov ah, 0x0e
-    mov al, 0x0a
     int 0x10
-    mov al, 0x0d
-    int 0x10
-    mov si, prompt
-    call print_string
     jmp shell
 
 check_command:
@@ -81,6 +77,7 @@ prompt db "> ", 0
 buffer db 100, 0
 command db "ver", 0
 ver_msg db "epicOS test build", 0
-debug_msg db "command is not ver. You typed: ", 0
+debug_msg db "command is not ver. you typed: ", 0
 
 times 512-($-$$) db 0
+
