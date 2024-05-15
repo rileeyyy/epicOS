@@ -29,10 +29,7 @@ shell:
     mov ah, 0
     int 0x16
     cmp al, 0x0D
-    jne shell_loop
-    jmp check_command
-
-shell_loop:
+    je check_command
     mov ah, 0x0e
     int 0x10
     jmp shell
