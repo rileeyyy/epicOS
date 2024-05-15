@@ -44,13 +44,21 @@ shell:
 check_command:
     mov si, buffer
     mov di, command
-    cld
     mov cx, 3
-    repe cmpsb
-    jne shell
+    cld
+
+compare_loop:
+    lodsb
+    cmp al, byte [di]
+    jne not_ver
+    inc di
+    loop compare_loop
 
     mov si, ver_msg
     call print_string
+    jmp shell
+
+not_ver:
     jmp shell
 
 print_string:
