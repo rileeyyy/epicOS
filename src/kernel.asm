@@ -53,7 +53,6 @@ check_command:
     call print_string
     jmp shell
 
-
 print_string:
     lodsb
     or al, al
